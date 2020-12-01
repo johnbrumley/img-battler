@@ -3,11 +3,44 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
 
-    <style> .player { display: inline-block; } </style>
+    <style> 
+    body { 
+      background: url('bg-carpet.jpg');
+    }
+    .player { display: inline-block; } 
+    .player img{ display: none; margin: 20px 0; border: 4px groove ghostwhite;}
+    .player .stats { padding: 10px; border: 2px solid black; background: white;}
+    .player .stats p { margin: 2px 0;}
+
+    .drop_zone {
+      width: 350px;
+      height: 480px;
+      margin: 50px auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 5px solid rgb(0, 0, 0);
+      border-radius: 4%;
+      background:linen;
+    }
+    
+    </style>
   </head>
   <body>
-    <div class="player p1"><img id="img1" crossorigin="" src="pika.jpg" width="480" height="680"/></div>
-    <div class="player p2"><img id="img2" crossorigin="" src="magic.jpg" width="480" height="680"/></div>
+
+    <div class="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+      <div class="player p1">
+        <img id="img1" crossorigin="" width="320" height="240"/>
+        <div class="stats stats1">
+          <p>Drag one or more files to this Drop Zone ...</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- <div class="player p2"><img id="img2" crossorigin="" src="magic.jpg" width="480" height="680"/></div> -->
     
     <script src="index.js"></script>
   </body>
