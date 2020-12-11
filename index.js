@@ -4,7 +4,8 @@ const scale = 10;
 
 // adding or removing from this list will add/remove the number of values
 // we get from mobilnet
-const statNames = ['Beauty','Sourness','Stubble','Flakiness','Courage','Glow','literacy'];
+// const statNames = ['Beauty','Sourness','Stubble','Flakiness','Courage','Glow','literacy'];
+const statNames = ['atk','def','spd'];
 
 const img1 = document.getElementById('img1');
 
@@ -17,6 +18,8 @@ async function generateStatsFromFile(file){
   const reader = new FileReader();
   reader.onload = (function(i) { return function(e) { i.src = e.target.result; }; })(img1);
   reader.readAsDataURL(file);
+
+  console.log(net.predict(img1, true));
 
   const r1 = model.predict(net.infer(img1, true));
   d1 = await r1.data();
